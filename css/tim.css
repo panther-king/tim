@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    background-color: #eee;
+    height: 100%;
+}
+
+#container {
+    height: 100%;
+    padding: 2%;
+}
+
+#timer {
+    font-size: 300%;
+    text-align: center;
+}
+
+.components:first-child {
+    height: 80%;
+}
+
+.components:last-child {
+    height: 20%;
+}
