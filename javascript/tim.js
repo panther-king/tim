@@ -6,11 +6,14 @@
       counter: 0,
       minutes: '00',
       seconds: '00',
+      status: 'wait',
       timer: null
     },
     methods: {
       down: function(context) {
-        context.counter -= 60;
+        if (context.status === 'wait') {
+          context.counter -= 60;
+        }
       },
       minute: function(value) {
         if (value === 60) {
@@ -31,22 +34,32 @@
         }
       },
       reset: function(context) {
-        context.counter = 0;
+        if (context.status === 'wait') {
+          context.counter = 0;
+        }
       },
       second: function(value) {
         var minute = Math.floor(value / 60);
         return value - (minute * 60);
       },
       start: function(context) {
-        context.timer = setInterval(function() {
-          context.counter--;
-        }, 1000);
+        if (context.status === 'wait') {
+          context.timer = setInterval(function() {
+            context.counter--;
+          }, 1000);
+          context.status = 'exec';
+        }
       },
       stop: function(context) {
-        clearInterval(context.timer);
+        if (context.status === 'exec') {
+          clearInterval(context.timer);
+          context.status = 'wait';
+        }
       },
       up: function(context) {
-        context.counter += 60;
+        if (context.status === 'wait') {
+          context.counter += 60;
+        }
       }
     }
   });
