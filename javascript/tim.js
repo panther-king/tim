@@ -5,6 +5,10 @@
     data: {
       counter: 0,
       minutes: '00',
+      opacity: {
+        exec: 0.3,
+        wait: 1.0
+      },
       seconds: '00',
       status: 'wait',
       timer: null
@@ -67,5 +71,15 @@
   vm.$watch('counter', function(value, mutation) {
     this.minutes = this.render(this.minute(value));
     this.seconds = this.render(this.second(value));
+  });
+
+  vm.$watch('status', function(value, mutation) {
+    if (value === 'exec') {
+      this.opacity.exec = 1.0;
+      this.opacity.wait = 0.3;
+    } else if (value === 'wait') {
+      this.opacity.exec = 0.3;
+      this.opacity.wait = 1.0;
+    }
   });
 })();
