@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Time is money</title>
+    <link rel="stylesheet" href="css/semantic.min.css">
+    <link rel="stylesheet" href="css/tim.css">
+  </head>
+  <body>
+    <div id="container">
+      <div class="components">
+        <div class="ui two column grid">
+          <div class="column">
+            <div class="ui segment">
+              <span class="timer">{{minutes}}</span>
+            </div>
+          </div>
+          <div class="column">
+            <div class="ui segment">
+              <span class="timer">{{seconds}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="components">
+        <div class="ui two column grid">
+          <div class="column">
+            <div class="ui fluid circular button"
+                 v-on="click: up(this)"
+                 v-style="opacity: opacity.wait"><i class="up arrow icon"></i></div>
+          </div>
+          <div class="column">
+            <div class="ui fluid circular button"
+                 v-on="click: down(this)"
+                 v-style="opacity: opacity.wait"><i class="down arrow icon"></i></div>
+          </div>
+        </div>
+      </div>
+      <div class="components">
+        <div class="ui three column grid">
+          <div class="column">
+            <div class="ui fluid circular green button"
+                 v-on="click: start(this)"
+                 v-style="opacity: opacity.wait"><i class="play icon"></i>Start</div>
+          </div>
+          <div class="column">
+            <div class="ui fluid circular blue button"
+                 v-on="click: stop(this)"
+                 v-style="opacity: opacity.exec"><i class="stop icon"></i>Stop</div>
+          </div>
+          <div class="column">
+            <div class="ui fluid circular red button"
+                 v-on="click: reset(this)"
+                 v-style="opacity: opacity.wait"><i class="eject icon"></i>Reset</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="javascript/jquery-2.1.1.min.js"></script>
+    <script src="javascript/semantic.min.js"></script>
+    <script src="javascript/vue.min.js"></script>
+    <script src="javascript/tim.js"></script>
+  </body>
+</html>
