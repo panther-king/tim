@@ -53,7 +53,7 @@
         return value - (minute * 60);
       },
       start: function(context) {
-        if (context.status === 'wait') {
+        if (context.status === 'wait' && context.counter > 0) {
           context.timer = setInterval(function() {
             context.counter--;
           }, 1000);
