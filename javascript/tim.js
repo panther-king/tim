@@ -19,6 +19,12 @@
           context.counter -= 60;
         }
       },
+      initialize: function() {
+        this.minutes = '00';
+        this.seconds = '00';
+        this.status = 'wait';
+        clearInterval(this.timer);
+      },
       minute: function(value) {
         if (value === 60) {
           return 1;
@@ -71,6 +77,9 @@
   vm.$watch('counter', function(value, mutation) {
     this.minutes = this.render(this.minute(value));
     this.seconds = this.render(this.second(value));
+    if (value === 0) {
+      vm.initialize();
+    }
   });
 
   vm.$watch('status', function(value, mutation) {
