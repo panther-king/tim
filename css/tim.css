@@ -17,15 +17,43 @@ html, body {
     padding: 2%;
 }
 
+h1 {
+   font-size: 6rem;
+   text-align: center;
+   padding-bottom: 2rem;
+}
+
+h1 span {
+    font-size: 14px;
+}
+
 .components:first-child {
-    height: 60%;
+    padding:0 0 10px;
+}
+
+.components:last-child {
+    position: absolute;
+    bottom:0;
+    width: 96%;
+}
+.components:last-child div {
+    width: 100%;
 }
 
 .segment {
     text-align: center;
 }
 
-.timer {
+.timer,
+.components:last-child {
     font-family: "Graduate", cursive;
     font-size: 4rem;
+}
+
+.margin-bottom-little {
+    margin-bottom: 8px;
+}
+
+.ui.grid>.column {
+    margin-top: 0;
 }
